@@ -3,6 +3,7 @@ package user;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.ListIterator;
 
 public class Main {
 
@@ -42,7 +43,7 @@ public class Main {
 		    }
 		});
 		
-		System.out.println("\nsorted alphabeticaly\n\n");
+		System.out.println("\nsorted alphabetically\n\n");
 		
 		// displaying the users sorted by names
 		for(User user : users) {
@@ -55,8 +56,10 @@ public class Main {
 		
 		System.out.println("\nafter removal of Pierre and Pierrette\n\n");
 		
-		for(User user : users) {
-			System.out.println(user.toString() + "\n");
+		// displaying the users with an iterator
+		ListIterator<User> iterator = users.listIterator();
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next().toString() + "\n");
 		}
 		
 	}
