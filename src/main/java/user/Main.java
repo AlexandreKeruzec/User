@@ -2,6 +2,7 @@ package user;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Main {
 
@@ -29,12 +30,35 @@ public class Main {
 		User u10 = new User("Nathalie", 38, false);
 		users.add(u10);
 		
+		// displaying the users
 		for(User user : users) {
 			System.out.println(user.toString() + "\n");
 		}
 		
-		Collections.sort(users, c);
-
+		// sorting the users by name
+		Collections.sort(users, new Comparator<User>() {
+		    public int compare(User u1, User u2) {
+		        return u1.getName().compareTo(u2.getName());
+		    }
+		});
+		
+		System.out.println("\nsorted alphabeticaly\n\n");
+		
+		// displaying the users sorted by names
+		for(User user : users) {
+			System.out.println(user.toString() + "\n");
+		}
+		
+		// removing some users
+		users.remove(8);
+		users.remove(7);
+		
+		System.out.println("\nafter removal of Pierre and Pierrette\n\n");
+		
+		for(User user : users) {
+			System.out.println(user.toString() + "\n");
+		}
+		
 	}
 
 }
